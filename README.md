@@ -36,7 +36,10 @@ Esqueleto sql = Esqueleto.create(config -> {
 ### Update
 Returns the inserted id of the signature
 ```java
-Optional<Integer> signatureId = main.sql().statement(
+UUID playerUuid = ...;
+byte[] signature = ...;
+
+Optional<Integer> signatureId = sql.statement(
     "INSERT INTO Signature (playerId, signature) VALUES ((SELECT id FROM Player WHERE uniqueId = ?), ?)",
     playerUuid,
     signature
@@ -68,7 +71,7 @@ Optional<Long> discordId = sql.statement("""
     player.getUsername()
 ).query().complete(results -> {
     return results.next()? results.get("discordId") : null;
-}
+});
 ```
 ### Close
 ```java
