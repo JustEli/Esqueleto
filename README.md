@@ -1,5 +1,23 @@
 # Esqueleto
+![](https://img.shields.io/badge/Java-17-blue)
+
+### Description
 SQL util for Java using HikariCP, to make querying SQL in Java easier.
+
+
+## Tested adapters
+
+| **Adapter** | **Tested** | **Esqueleto Version** | **Adapter Version** |
+|------------|------------|---------------------------|-------------------------|
+| MySQL      |      ❌     |                           |                         |
+| MariaDB    |      ✅     | latest (always tested)              | [2.7.7 (Maven)](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/2.7.7) |
+| H2         |      ❌     |                           |                         |
+| MS SQL     |      ❌     |                           |                         |
+| Oracle     |      ❌     |                           |                         |
+| SQLite     |      ❌     |                           |                         |
+| PostgreSQL |      ❌     |                           |                         |
+
+
 
 ## Examples
 
