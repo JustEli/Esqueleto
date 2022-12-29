@@ -1,11 +1,11 @@
 package me.justeli.esqueleto;
 
+import me.justeli.esqueleto.annotation.CheckReturnValue;
 import me.justeli.esqueleto.binary.Binary;
 import me.justeli.esqueleto.handler.SqlConsumer;
 import me.justeli.esqueleto.handler.SqlFunction;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.CheckReturnValue;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,7 +32,8 @@ public abstract class AbstractStatement
     @CheckReturnValue
     abstract ExecutionData execute ();
 
-    @CheckReturnValue @NotNull
+    @CheckReturnValue
+    @NotNull
     public <T> Optional<T> complete (@NotNull SqlFunction<Results, T> handler)
     {
         ExecutionData data = execute();

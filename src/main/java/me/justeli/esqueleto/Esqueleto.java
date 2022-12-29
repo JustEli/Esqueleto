@@ -1,13 +1,13 @@
 package me.justeli.esqueleto;
 
 import com.zaxxer.hikari.HikariDataSource;
+import me.justeli.esqueleto.annotation.CheckReturnValue;
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nullable;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.function.Consumer;
@@ -69,7 +69,8 @@ public final class Esqueleto
      * @param statement SQL statement that contains question marks (?) as variables.
      * @param replacements The replacements that will replace the question marks in the query.
      */
-    @CheckReturnValue @NotNull
+    @CheckReturnValue
+    @NotNull
     public UnparsedStatement statement (@Language("SQL") @NotNull String statement, Object... replacements)
     {
         return new UnparsedStatement(this, statement, replacements);

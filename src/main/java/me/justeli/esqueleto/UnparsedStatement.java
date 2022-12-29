@@ -1,9 +1,8 @@
 package me.justeli.esqueleto;
 
-import javax.annotation.CheckReturnValue;
+import me.justeli.esqueleto.annotation.CheckReturnValue;
 
 /* Eli @ April 13, 2021 (creation) */
-@CheckReturnValue
 public final class UnparsedStatement
 {
     private final Esqueleto esqueleto;
@@ -17,11 +16,13 @@ public final class UnparsedStatement
         this.replacements = replacements;
     }
 
+    @CheckReturnValue
     public ExecuteUpdate update ()
     {
         return new ExecuteUpdate(this.esqueleto, this.statement, this.replacements);
     }
 
+    @CheckReturnValue
     public ExecuteQuery query ()
     {
         return new ExecuteQuery(this.esqueleto, this.statement, this.replacements);
