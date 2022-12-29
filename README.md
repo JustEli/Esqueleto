@@ -16,6 +16,15 @@ Esqueleto sql = Esqueleto.create(config -> {
 }).start();
 ```
 ### Update
+Returns the inserted id of the signature
+```java
+Optional<Integer> signatureId = main.sql().statement(
+    "INSERT INTO Signature (playerId, signature) VALUES ((SELECT id FROM Player WHERE uniqueId = ?), ?)",
+    playerUuid,
+    signature
+).update().complete(data -> data.next()? data.getInt("id") : null);
+```
+
 ```java
 Company company = ...;
 int transactionAmount = ...;
