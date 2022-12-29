@@ -10,7 +10,7 @@ public final class TableCreations
         main.sql().statement("""
             CREATE TABLE IF NOT EXISTS TestTable (
                 id   INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                data VARBINARY(8192) NOT NULL
+                data BLOB NOT NULL
             )
             """).update().queue();
 
