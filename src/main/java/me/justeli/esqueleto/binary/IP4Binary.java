@@ -1,6 +1,6 @@
 package me.justeli.esqueleto.binary;
 
-import java.net.InetAddress;
+import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 
@@ -9,11 +9,11 @@ import java.nio.ByteBuffer;
 /**
  * BINARY(4)
  */
-public final class AddressBinary
-    implements Binary<InetAddress>
+public final class IP4Binary
+    implements Binary<Inet4Address>
 {
     @Override
-    public byte[] from (InetAddress type)
+    public byte[] from (Inet4Address type)
     {
         ByteBuffer buffer = ByteBuffer.wrap(new byte[4]);
 
@@ -27,15 +27,15 @@ public final class AddressBinary
     }
 
     @Override
-    public InetAddress to (byte[] data)
+    public Inet4Address to (byte[] data)
     {
-        try { return InetAddress.getByAddress(data); }
+        try { return Inet4Address.getByAddress(data) instanceof Inet4Address ip4? ip4 : null; }
         catch (UnknownHostException exception) { return null; }
     }
 
     @Override
-    public Class<InetAddress> type ()
+    public Class<Inet4Address> type ()
     {
-        return InetAddress.class;
+        return Inet4Address.class;
     }
 }

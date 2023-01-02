@@ -1,7 +1,7 @@
 package me.justeli.esqueleto;
 
 import com.zaxxer.hikari.HikariConfig;
-import me.justeli.esqueleto.binary.AddressBinary;
+import me.justeli.esqueleto.binary.IP4Binary;
 import me.justeli.esqueleto.binary.Binary;
 import me.justeli.esqueleto.binary.UuidBinary;
 
@@ -29,7 +29,7 @@ public final class SqlConfig
         super.setConnectionTimeout(5000);
         super.setInitializationFailTimeout(-1);
 
-        registerBinaryTransformer(new AddressBinary());
+        registerBinaryTransformer(new IP4Binary());
         registerBinaryTransformer(new UuidBinary());
     }
 
