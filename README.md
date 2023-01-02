@@ -5,19 +5,17 @@
 SQL util for Java using HikariCP, to make querying SQL in Java easier.
 
 
-## Tested adapters
+## Adapters
 
-| **Adapter** | **Tested** | **Esqueleto Version** | **Adapter Version** |
+| **Adapter** | **Works?** | **Esqueleto Version** | **Adapter Version** |
 |------------|------------|---------------------------|-------------------------|
-| MySQL      |      ❌     |                           |                         |
-| MariaDB    |      ✅     | latest (always tested)              | [2.7.7 (Maven)](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/2.7.7) |
-| H2         |      ❌     |                           |                         |
-| MS SQL     |      ❌     |                           |                         |
-| Oracle     |      ❌     |                           |                         |
-| SQLite     |      ❌     |                           |                         |
-| PostgreSQL |      ❌     |                           |                         |
-
-
+| MariaDB       | ✅ Fully    | latest (always tested) | [2.7.7 (Maven)](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/2.7.7) |
+| MySQL         | ❌ ResultSet closed     |                           |                         |
+| SQLite        | ❌ Can't select    |                           |                         |
+| PostgreSQL    | ❌ ResultSet closed    |                           |                         |
+| MS SQL Server | ❌ Untested    |                           |                         |
+| H2            | ❌ Untested    |                           |                         |
+| IBM Db2       | ❌ Untested
 
 ## Examples
 
