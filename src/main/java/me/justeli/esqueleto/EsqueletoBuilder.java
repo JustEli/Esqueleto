@@ -49,6 +49,11 @@ public final class EsqueletoBuilder
         catch (RuntimeException exception)
         {
             Esqueleto.LOGGER.error("No dependency was detected for the SQL driver!");
+            if (this.config.isDebug())
+            {
+                Esqueleto.LOGGER.error("[DEBUG]");
+                exception.printStackTrace();
+            }
             return null;
         }
     }

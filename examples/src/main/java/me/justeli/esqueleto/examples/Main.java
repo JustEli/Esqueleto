@@ -33,6 +33,7 @@ public final class Main
         this.exampleBinary = new ExampleBinary();
         this.sql = Esqueleto.create(config ->
         {
+            config.setDebug(true);
             config.setAdapter(SqlAdapter.MARIADB);
             // CREATE DATABASE esqueleto_test;
             config.setDatabase("esqueleto_test");

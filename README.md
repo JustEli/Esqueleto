@@ -15,7 +15,6 @@ SQL util for Java using HikariCP, to make querying SQL in Java easier.
 | PostgreSQL    | ❌ ResultSet closed    |                           |                         |
 | MS SQL Server | ❌ Untested    |                           |                         |
 | H2            | ❌ Untested    |                           |                         |
-| IBM Db2       | ❌ Untested
 
 ## Examples
 

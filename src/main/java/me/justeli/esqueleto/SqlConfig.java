@@ -21,7 +21,8 @@ public final class SqlConfig
 
     SqlConfig ()
     {
-        super.addDataSourceProperty("properties", "useUnicode=true;characterEncoding=utf8;useSSL=false;socketTimeout=30000");
+//        super.addDataSourceProperty("properties", "useUnicode=true;characterEncoding=utf8;useSSL=false;socketTimeout=30000");
+
         super.setMaximumPoolSize(10);
         super.setMinimumIdle(10);
         super.setMaxLifetime(1800000);
@@ -85,5 +86,17 @@ public final class SqlConfig
     public <T> Binary<T> getBinaryTransformer (Class<T> type)
     {
         return (Binary<T>) this.transformers.get(type);
+    }
+
+    private boolean debug;
+
+    public void setDebug (boolean debug)
+    {
+        this.debug = debug;
+    }
+
+    public boolean isDebug ()
+    {
+        return debug;
     }
 }

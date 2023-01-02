@@ -9,7 +9,7 @@ public final class TableCreations
     {
         main.sql().statement("""
             CREATE TABLE IF NOT EXISTS TestTable (
-                id   INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+                id   INT,
                 data BLOB NOT NULL
             )
             """).update().queue();
