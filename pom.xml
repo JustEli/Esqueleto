@@ -6,7 +6,7 @@
 
     <groupId>me.justeli.esqueleto</groupId>
     <artifactId>esqueleto</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
 
     <name>Esqueleto</name>
     <description>SQL util for Java using HikariCP, to make querying SQL in Java easier.</description>
@@ -62,7 +62,7 @@
                     <relocations>
                         <relocation>
                             <pattern>com.zaxxer.hikari</pattern>
-                            <shadedPattern>${project.groupId}.shaded.com.zaxxer.hikari</shadedPattern>
+                            <shadedPattern>${project.groupId}.hikari</shadedPattern>
                         </relocation>
                     </relocations>
                     <dependencyReducedPomLocation>

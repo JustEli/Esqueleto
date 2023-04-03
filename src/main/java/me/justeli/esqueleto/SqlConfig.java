@@ -4,7 +4,9 @@ import com.zaxxer.hikari.HikariConfig;
 import me.justeli.esqueleto.binary.IP4Binary;
 import me.justeli.esqueleto.binary.Binary;
 import me.justeli.esqueleto.binary.UuidBinary;
+import me.justeli.esqueleto.driver.SqlDriver;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -18,6 +20,8 @@ public final class SqlConfig
 {
     private ExecutorService queueService = Executors.newSingleThreadExecutor();
     private ExecutorService asyncService = ForkJoinPool.commonPool();
+
+    private SqlDriver driver;
 
     SqlConfig ()
     {
@@ -71,9 +75,28 @@ public final class SqlConfig
         super.addDataSourceProperty("databaseName", database);
     }
 
+    @Deprecated
     public void setAdapter (String adapter)
     {
         super.setDataSourceClassName(adapter);
+    }
+
+    public void setDriver (SqlDriver driver)
+    {
+        this.driver = driver;
+        super.setDataSourceClassName(driver.className());
+    }
+
+    public <T extends SqlDriver> void setDriver (Class<T> clazz)
+    {
+        try
+        {
+            setDriver(clazz.getConstructor().newInstance());
+        }
+        catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException exception)
+        {
+            throw new RuntimeException(exception);
+        }
     }
 
     private final Map<Class<?>, Binary<?>> transformers = new HashMap<>();
