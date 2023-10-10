@@ -1,22 +1,22 @@
 package me.justeli.esqueleto.driver;
 
 /* Eli @ January 02, 2023 (creation) */
-public final class SQLiteDriver
+public final class PostgreSQLDriver
     implements SqlDriver
 {
     @Override
     public String className ()
     {
-        return null;
+        return "org.postgresql.ds.PGSimpleDataSource";
     }
 
     @Override
     public String dependency ()
     {
         return """
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.43.0.0</version>""";
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>""";
     }
 
     @Override

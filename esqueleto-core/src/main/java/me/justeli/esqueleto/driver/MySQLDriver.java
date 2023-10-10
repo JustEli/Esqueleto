@@ -1,22 +1,22 @@
 package me.justeli.esqueleto.driver;
 
 /* Eli @ January 02, 2023 (creation) */
-public final class H2Driver
+public final class MySQLDriver
     implements SqlDriver
 {
     @Override
     public String className ()
     {
-        return null;
+        return "com.mysql.cj.jdbc.MysqlDataSource";
     }
 
     @Override
     public String dependency ()
     {
         return """
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.2.224</version>""";
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>""";
     }
 
     @Override

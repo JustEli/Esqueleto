@@ -4,6 +4,16 @@
 ### Description
 SQL util for Java using HikariCP, to make querying SQL in Java easier.
 
+## Maven
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.JustEli</groupId>
+        <artifactId>esqueleto-core</artifactId>
+        <version>${version}</version>
+    </dependency>
+</dependencies>
+```
 
 ## Adapters
 

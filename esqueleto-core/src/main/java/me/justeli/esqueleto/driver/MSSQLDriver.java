@@ -17,7 +17,7 @@ public final class MSSQLDriver
     @Override
     public String className ()
     {
-        return null;
+        return "com.microsoft.sqlserver.jdbc.SQLServerDataSource";
     }
 
     @Override

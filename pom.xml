@@ -5,8 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.justeli.esqueleto</groupId>
-    <artifactId>esqueleto</artifactId>
-    <version>0.1.0</version>
+    <artifactId>Esqueleto</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>esqueleto-core</module>
+        <module>esqueleto-examples</module>
+        <module>esqueleto-testing</module>
+    </modules>
 
     <name>Esqueleto</name>
     <description>SQL util for Java using HikariCP, to make querying SQL in Java easier.</description>
@@ -57,7 +64,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.5.1</version>
                 <configuration>
                     <relocations>
                         <relocation>
@@ -68,14 +75,6 @@
                     <dependencyReducedPomLocation>
                         ${project.build.directory}/dependency-reduced-pom.xml
                     </dependencyReducedPomLocation>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/**</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
                 </configuration>
                 <executions>
                     <execution>
@@ -97,12 +96,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>5.0.1</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
