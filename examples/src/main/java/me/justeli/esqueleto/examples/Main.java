@@ -1,7 +1,7 @@
 package me.justeli.esqueleto.examples;
 
 import me.justeli.esqueleto.Esqueleto;
-import me.justeli.esqueleto.SqlAdapter;
+import me.justeli.esqueleto.driver.MariaDBDriver;
 import me.justeli.esqueleto.examples.binary.ExampleBinary;
 import me.justeli.esqueleto.examples.statements.Insertions;
 import me.justeli.esqueleto.examples.statements.Querying;
@@ -34,7 +34,7 @@ public final class Main
         this.sql = Esqueleto.create(config ->
         {
             config.setDebug(true);
-            config.setAdapter(SqlAdapter.MARIADB);
+            config.setDriver(MariaDBDriver.class);
             // CREATE DATABASE esqueleto_test;
             config.setDatabase("esqueleto_test");
             // CREATE USER 'esqueleto'@'localhost' IDENTIFIED BY 'dAQ5g61NT';
