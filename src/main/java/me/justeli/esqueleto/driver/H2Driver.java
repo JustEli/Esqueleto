@@ -16,7 +16,7 @@ public final class H2Driver
         return """
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>2.1.214</version>""";
+            <version>2.2.224</version>""";
     }
 
     @Override

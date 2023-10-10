@@ -26,7 +26,7 @@ public final class MSSQLDriver
         return """
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>11.2.2.jre11</version>""";
+            <version>12.4.1.jre11</version>""";
     }
 
     @Override

@@ -16,7 +16,7 @@ public final class SQLiteDriver
         return """
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
-            <version>3.40.0.0</version>""";
+            <version>3.43.0.0</version>""";
     }
 
     @Override

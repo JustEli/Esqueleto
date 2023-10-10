@@ -16,7 +16,7 @@ public final class MySQLDriver
         return """
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.31</version>""";
+            <version>8.0.33</version>""";
     }
 
     @Override

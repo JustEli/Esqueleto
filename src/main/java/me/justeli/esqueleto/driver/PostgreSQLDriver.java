@@ -16,7 +16,7 @@ public final class PostgreSQLDriver
         return """
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.5.1</version>""";
+            <version>42.6.0</version>""";
     }
 
     @Override

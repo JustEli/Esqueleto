@@ -75,12 +75,6 @@ public final class SqlConfig
         super.addDataSourceProperty("databaseName", database);
     }
 
-    @Deprecated
-    public void setAdapter (String adapter)
-    {
-        super.setDataSourceClassName(adapter);
-    }
-
     public void setDriver (SqlDriver driver)
     {
         this.driver = driver;

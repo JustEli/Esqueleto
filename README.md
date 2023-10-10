@@ -21,7 +21,7 @@ SQL util for Java using HikariCP, to make querying SQL in Java easier.
 ### Open connection
 ```java
 Esqueleto sql = Esqueleto.create(config -> {
-    config.setAdapter(SqlAdapter.MARIADB);
+    config.setDriver(MariaDBDriver.class);
     // CREATE DATABASE esqueleto_test;
     config.setDatabase("esqueleto_test");
     // CREATE USER 'esqueleto'@'localhost' IDENTIFIED BY 'dAQ5g61NT';
