@@ -7,24 +7,28 @@ public final class UnparsedStatement
 {
     private final Esqueleto esqueleto;
     private final String statement;
-    private final Object[] replacements;
 
-    UnparsedStatement (Esqueleto esqueleto, String statement, Object... replacements)
+    UnparsedStatement (Esqueleto esqueleto, String statement)
     {
         this.esqueleto = esqueleto;
         this.statement = statement;
-        this.replacements = replacements;
     }
 
     @CheckReturnValue
     public ExecuteUpdate update ()
     {
-        return new ExecuteUpdate(this.esqueleto, this.statement, this.replacements);
+        return new ExecuteUpdate(this.esqueleto, this.statement);
     }
 
     @CheckReturnValue
     public ExecuteQuery query ()
     {
-        return new ExecuteQuery(this.esqueleto, this.statement, this.replacements);
+        return new ExecuteQuery(this.esqueleto, this.statement);
+    }
+
+    @CheckReturnValue
+    public StatementBind bind (Object... replacements)
+    {
+        return new StatementBind(this.esqueleto, this.statement, replacements);
     }
 }

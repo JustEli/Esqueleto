@@ -20,11 +20,12 @@ public final class Insertions
                 Integer.toHexString(RANDOM.nextInt())
             );
 
-            main.sql().statement("INSERT INTO TestTable (data) VALUES (?)", data).update().queue();
+            main.sql().statement("INSERT INTO TestTable (data) VALUES (?)").bind(data).update().queue();
         }
 
         int inserted = main.sql().statement(
-            "INSERT INTO UuidTable (uuid, message) VALUES (?, ?)",
+            "INSERT INTO UuidTable (uuid, message) VALUES (?, ?)"
+        ).bind(
             UUID.randomUUID(),
             Integer.toHexString(RANDOM.nextInt())
         ).update().complete();

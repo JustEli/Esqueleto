@@ -71,7 +71,7 @@ public class Main
         var random = RANDOM.nextLong();
         sql.statement("DROP TABLE IF EXISTS test_table").update().complete();
         sql.statement("CREATE TABLE IF NOT EXISTS test_table ( id BIGINT )").update().complete();
-        sql.statement("INSERT INTO test_table (id) VALUE (?)", random).update().complete();
+        sql.statement("INSERT INTO test_table (id) VALUE (?)").bind(random).update().complete();
         Optional<Long> id = sql.statement("SELECT id FROM test_table LIMIT 1").query()
             .complete(data -> data.next()? data.getNullableLong("id") : null);
 

@@ -71,9 +71,17 @@ public final class Esqueleto
      */
     @CheckReturnValue
     @NotNull
-    public UnparsedStatement statement (@Language("SQL") @NotNull String statement, Object... replacements)
+    @Deprecated(forRemoval = true, since = "0.1.2")
+    public StatementBind statement (@Language("SQL") @NotNull String statement, Object... replacements)
     {
-        return new UnparsedStatement(this, statement, replacements);
+        return new UnparsedStatement(this, statement).bind(replacements);
+    }
+
+    @CheckReturnValue
+    @NotNull
+    public UnparsedStatement statement (@Language("SQL") @NotNull String statement)
+    {
+        return new UnparsedStatement(this, statement);
     }
 
     /**
