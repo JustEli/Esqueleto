@@ -19,6 +19,11 @@ SQL util for Java using HikariCP, to make querying SQL in Java easier.
         <artifactId>esqueleto-core</artifactId>
         <version>VERSION</version>
     </dependency>
+    <dependency>
+        <groupId>ADAPTER_PACKAGE</groupId>
+        <artifactId>ADAPTER_ID</artifactId>
+        <version>ADAPTER_VERSION</version>
+    </dependency>
 </dependencies>
 ```
 
@@ -54,7 +59,8 @@ UUID playerUuid = ...;
 byte[] signature = ...;
 
 Optional<Integer> signatureId = sql.statement(
-    "INSERT INTO Signature (playerId, signature) VALUES ((SELECT id FROM Player WHERE uniqueId = ?), ?)",
+    "INSERT INTO Signature (playerId, signature) VALUES ((SELECT id FROM Player WHERE uniqueId = ?), ?)"
+).bind(
     playerUuid,
     signature
 ).update().complete(data -> data.next()? data.getInt("id") : null);
@@ -67,7 +73,8 @@ int transactionAmount = ...;
 sql.statement("""
     UPDATE Company SET profit = profit + ?
     WHERE id = ?
-    """,
+    """
+).bind(
     transactionAmount,
     company.getId()
 ).update().push();
@@ -76,12 +83,9 @@ sql.statement("""
 ```java
 Player player = ...;
 
-Optional<Long> discordId = sql.statement("""
-    SELECT discordId
-    FROM Player
-    WHERE username = ?
-    LIMIT 1
-    """,
+Optional<Long> discordId = sql.statement(
+    "SELECT discordId FROM Player WHERE username = ? LIMIT 1"
+).bind(
     player.getUsername()
 ).query().complete(results -> {
     return results.next()? results.get("discordId") : null;
